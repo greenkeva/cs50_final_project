@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post">
+       <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <select name="user_type">
+            <option disabled selected value="">------</option>
+            {% for user in USERS %}
+                <option value="{{ user }}">{{ user }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+{% endblock %}
